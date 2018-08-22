@@ -1,2 +1,2 @@
 # lists
-Exercise in *Eloquent Javascript* chapter 4
+Exercise from *Eloquent Javascript* chapter 4
