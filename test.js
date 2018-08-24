@@ -8,10 +8,14 @@ const
 describe('*list* is a data structure', () => {
   it('arrayToList: build up a list structure from an array', () => {
     assert.deepEqual(lists.arrayToList([10, 20]), {value: 10, rest: {value: 20, rest: null}});
+    assert.deepEqual(lists.arrayToList([1]), {value: 1, rest: null});
+    assert.deepEqual(lists.arrayToList('hello'), {value: null, rest: null});
+    assert.deepEqual(lists.arrayToList(), {value: null, rest: null});
   });
 
   it('listToArray: produce an array from a list', () => {
     assert.deepEqual(lists.listToArray(lists.arrayToList([10, 20, 30])), [10, 20, 30]);
+    assert.deepEqual(lists.listToArray(lists.arrayToList(['testing'])), ['testing']);
   });
 
   it('testing prepend(elem, list) => new list that adds the element to the front of the input list', () => {
@@ -20,5 +24,6 @@ describe('*list* is a data structure', () => {
 
   it('nth: take a list and a number, return the element at the given position in the list', () => {
     assert.deepEqual(lists.nth(lists.arrayToList([10, 20, 30]), 1), 20);
+    assert.deepEqual(lists.nth(lists.arrayToList([10, 20, 30]), 11), undefined);
   });
 });
